@@ -124,7 +124,7 @@ html-email:
 	go run ./scripts/generatemjml/main.go -i resources/authgear/templates
 
 	for t in $$(find resources -name '*.mjml'); do \
-		./scripts/npm/node_modules/.bin/mjml -l strict "$$t" > "$${t%.mjml}.html"; \
+		./scripts/npm/node_modules/.bin/mjml -l strict --config.ignoreIncludes=true "$$t" > "$${t%.mjml}.html"; \
 	done
 
 .PHONY: authui
